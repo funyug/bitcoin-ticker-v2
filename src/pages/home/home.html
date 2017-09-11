@@ -3,16 +3,50 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Bitcoin Price</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div class="title-text">
+    Average Bitcoin Price
+  </div>
+  <div class="avg_price" *ngIf="avgPrice">
+    {{avgPrice | number : '1.2-2'}} INR
+    <div class="avg_usd_price">
+      ({{avgPrice / data.usd_rate | number : '1.2-2'}} USD)
+    </div>
+  </div>
+  <div class="avg_price" *ngIf="!avgPrice">
+    Please Wait...
+  </div>
+  <div>
+    <table>
+      <thead>
+      <th>Exchange</th>
+      <th>Buy Price</th>
+      <th>Sell Price</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Zebpay</td>
+        <td>{{data.zebpayBuyPrice | number}}<br>({{data.zebpayBuyPrice/data.usd_rate | number  : '1.0-0'}} USD)</td>
+        <td>{{data.zebpaySellPrice | number}}<br>({{data.zebpaySellPrice/data.usd_rate | number : '1.0-0'}} USD)</td>
+      </tr>
+      <tr>
+        <td>PocketBits</td>
+        <td>{{data.pocketBitsBuyPrice | number}}<br>({{data.pocketBitsBuyPrice/data.usd_rate | number  : '1.0-0'}} USD)</td>
+        <td>{{data.pocketBitsSellPrice | number}}<br>({{data.pocketBitsSellPrice/data.usd_rate | number  : '1.0-0'}} USD)</td>
+      </tr>
+      <tr>
+        <td>Coinsecure</td>
+        <td>{{data.coinsecureBuyPrice | number}}<br>({{data.coinsecureBuyPrice/data.usd_rate | number  : '1.0-0'}} USD)</td>
+        <td>{{data.coinsecureSellPrice | number}}<br>({{data.coinsecureSellPrice/data.usd_rate | number  : '1.0-0'}} USD)</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer">
+    <a href="bitcoin:3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4">Donate : 3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4</a>
+  </div>
 </ion-content>
