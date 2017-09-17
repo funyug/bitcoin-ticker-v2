@@ -6,17 +6,17 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AdMobFree } from '@ionic-native/admob-free';
+import {EthereumPage} from "../pages/ethereum/ethereum";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    EthereumPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    EthereumPage
   ],
   providers: [
     StatusBar,

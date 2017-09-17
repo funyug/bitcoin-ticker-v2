@@ -11,10 +11,13 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 export class HomePage {
   data: object;
   avgPrice: number;
+  timer:any;
+  country:string;
 
   constructor(public navCtrl: NavController, public http:Http, private ga: GoogleAnalytics,private admobFree: AdMobFree) {
+    this.country = "india";
     this.getPrice();
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.getPrice();
     },10000);
     this.data = {};
@@ -44,6 +47,9 @@ export class HomePage {
 
       })
       .catch(e => console.log(e));
+  }
+  ngOnDestroy() {
+    clearInterval(this.timer);
   }
   getPrice() {
     this.http.get(`http://shivamchawla.net:3001/bitcoin-price`)

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ethereum Price</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="title-text">
+    Average Ethereum Price
+  </div>
+  <div class="avg_price" *ngIf="avgPrice">
+    {{avgPrice | number : '1.2-2'}} USD
+    <div class="avg_usd_price">
+      ({{avgPrice / data.bitcoin_rate | number : '1.4-4'}} BTC)
+    </div>
+  </div>
+  <div class="avg_price" *ngIf="!avgPrice">
+    Please Wait...
+  </div>
+  <div>
+    <table>
+      <thead>
+      <th>Exchange</th>
+      <th>Buy Price</th>
+      <th>Sell Price</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Bitfinex</td>
+        <td>{{data.bitfinexBuyPrice | number}} USD<br>({{data.bitfinexBuyPrice/data.bitcoin_rate | number  : '1.4-4'}} BTC)</td>
+        <td>{{data.bitfinexSellPrice | number}} USD<br>({{data.bitfinexSellPrice/data.bitcoin_rate | number  : '1.4-4'}} BTC)</td>
+      </tr>
+      <tr>
+        <td>GDAX</td>
+        <td>{{data.gdaxBuyPrice | number}} USD<br>({{data.gdaxBuyPrice/data.bitcoin_rate | number  : '1.4-4'}} BTC)</td>
+        <td>{{data.gdaxSellPrice | number}} USD<br>({{data.gdaxSellPrice/data.bitcoin_rate | number  : '1.4-4'}} BTC)</td>
+      </tr>
+      <tr>
+        <td>Bittrex</td>
+        <td>{{data.bittrexBuyPrice * data.bitcoin_rate | number}} USD<br>({{data.bittrexBuyPrice | number  : '1.3-4'}} BTC)</td>
+        <td>{{data.bittrexSellPrice * data.bitcoin_rate | number}} USD<br>({{data.bittrexSellPrice | number  : '1.3-4'}} BTC)</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer">
+    <a href="bitcoin:3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4">Donate : 3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4</a>
+  </div>
+</ion-content>
