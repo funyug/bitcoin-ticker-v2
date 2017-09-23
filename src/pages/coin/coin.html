@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{this.coin_data.name}} Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="title-text">
+    {{this.coin_data.name}}
+  </div>
+  <div class="avg_price" *ngIf="avgPrice">
+    {{avgPrice | number : '1.2-2'}} USD
+    <div class="avg_usd_price">
+      ({{avgPrice / data.bitcoin_rate | number : '1.4-4'}} BTC)
+    </div>
+  </div>
+  <div class="avg_price" *ngIf="!avgPrice">
+    Please Wait...
+  </div>
+  <div>
+  
+  </div>
+  <div class="footer">
+    <a href="bitcoin:3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4">Donate : 3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4</a>
+  </div>
+</ion-content>

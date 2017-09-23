@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {EthereumPage} from "../pages/ethereum/ethereum";
+import {AllPage} from "../pages/all/all";
+import {CoinPage} from "../pages/coin/coin";
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +14,7 @@ import {EthereumPage} from "../pages/ethereum/ethereum";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = AllPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,7 +24,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Bitcoin Price', component: HomePage },
-      { title: 'Ethereum Price', component: EthereumPage }
+      { title: 'Ethereum Price', component: EthereumPage },
+      { title: 'All Coins', component: AllPage }
     ];
 
   }

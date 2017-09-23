@@ -39,7 +39,7 @@ body {
 }
 
 table,td,th {
-  font-size: 14px;
+  font-size: 12px;
   border:1px solid #F1D9A7;
   text-align: center;
 }
@@ -60,11 +60,28 @@ tr:nth-child(even) {
   background-color: #F3D34A;
 }
 td,th {
-  padding: 10px;
+  padding: 5px;
 }
 .footer {
   bottom:0;
   text-align: center;
   padding-top:2%;
 }
-
+.ngx-pagination {
+  padding-left:0px;
+}
+.ngx-pagination .disabled {
+  color:#F7941E !important;
+}
+.all_coin_table {
+  margin-top:1%;
+}
+.filter {
+  
+}
+.filter_input {
+  border-radius:5px;
+  width:40%;
+  border: 1px solid black;
+  padding-left:4px;
+}

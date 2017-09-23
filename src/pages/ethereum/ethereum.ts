@@ -11,10 +11,11 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 export class EthereumPage {
   data: object;
   avgPrice: number;
+  timer:any;
 
   constructor(public navCtrl: NavController, public http:Http, private ga: GoogleAnalytics,private admobFree: AdMobFree) {
     this.getPrice();
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.getPrice();
     },50000);
     this.data = {};
@@ -45,6 +46,11 @@ export class EthereumPage {
       })
       .catch(e => console.log(e));
   }
+
+  ngOnDestroy() {
+    clearInterval(this.timer);
+  }
+  
   getPrice() {
     if(!this.data) {
       this.data = {};
