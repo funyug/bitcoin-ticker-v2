@@ -51,7 +51,7 @@ export class CoinPage {
      this.ga.startTrackerWithId('UA-104875174-1')
       .then(() => {
         console.log('Google analytics is ready now');
-        this.ga.trackView(coin_data.name +' Page');
+        this.ga.trackView(this.coin_data["name"] +' Page');
         // Tracker is ready
         // You can now track pages or set additional information such as AppVersion or UserId
       })

@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import {EthereumPage} from "../pages/ethereum/ethereum";
 import {AllPage} from "../pages/all/all";
-import {CoinPage} from "../pages/coin/coin";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +14,7 @@ import {CoinPage} from "../pages/coin/coin";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AllPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 

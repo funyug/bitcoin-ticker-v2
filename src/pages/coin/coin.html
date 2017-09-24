@@ -11,19 +11,67 @@
   <div class="title-text">
     {{this.coin_data.name}}
   </div>
-  <div class="avg_price" *ngIf="avgPrice">
-    {{avgPrice | number : '1.2-2'}} USD
-    <div class="avg_usd_price">
-      ({{avgPrice / data.bitcoin_rate | number : '1.4-4'}} BTC)
-    </div>
-  </div>
-  <div class="avg_price" *ngIf="!avgPrice">
-    Please Wait...
-  </div>
   <div>
-  
-  </div>
-  <div class="footer">
-    <a href="bitcoin:3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4">Donate : 3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4</a>
+    <table class="bold">
+      <tr>
+        <td>
+          Symbol
+          <br />
+          {{this.coin_data.symbol}}
+        </td>
+        <td>
+          Rank
+          <br />
+          {{this.coin_data.rank}}
+        </td>
+        <td>
+          Market Cap
+          <br />
+          {{this.coin_data.market_cap_usd | number}} USD
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price
+          <br />
+          {{this.coin_data.price_usd}} USD
+          <br />
+          ({{this.coin_data.price_btc}} BTC)
+        </td>
+        <td>
+          24H Volume
+          <br />
+          {{this.coin_data["24h_volume_usd"] | number}} USD
+        </td>
+        <td>
+          Total Supply
+          <br />
+          {{this.coin_data.total_supply | number}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Percent Change 1 Hour
+          <br />
+          <span style="color:green" *ngIf="this.coin_data.percent_change_1h > 0">{{this.coin_data.percent_change_1h}} %</span>
+          <span style="color:red" *ngIf="this.coin_data.percent_change_1h < 0">{{this.coin_data.percent_change_1h}} %</span>
+          <span *ngIf="this.coin_data.percent_change_1h == 0">{{this.coin_data.percent_change_1h}} %</span>
+        </td>
+        <td>
+          Percent Change 24 Hour
+          <br />
+          <span style="color:green" *ngIf="this.coin_data.percent_change_24h > 0">{{this.coin_data.percent_change_24h}} %</span>
+          <span style="color:red" *ngIf="this.coin_data.percent_change_24h < 0">{{this.coin_data.percent_change_24h}} %</span>
+          <span *ngIf="this.coin_data.percent_change_24h == 0">{{this.coin_data.percent_change_24h}} %</span>
+        </td>
+        <td>
+          Percent Change 7 Days
+          <br />
+          <span style="color:green" *ngIf="this.coin_data.percent_change_7d > 0">{{this.coin_data.percent_change_7d}} %</span>
+          <span style="color:red" *ngIf="this.coin_data.percent_change_7d < 0">{{this.coin_data.percent_change_7d}} %</span>
+          <span *ngIf="this.coin_data.percent_change_7d == 0">{{this.coin_data.percent_change_7d}} %</span>
+        </td>
+      </tr>
+    </table>
   </div>
 </ion-content>
