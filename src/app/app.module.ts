@@ -14,6 +14,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
 import {EthereumPage} from "../pages/ethereum/ethereum";
 import {AllPage} from "../pages/all/all";
 import {CoinPage} from "../pages/coin/coin";
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {CoinPage} from "../pages/coin/coin";
     SplashScreen,
     GoogleAnalytics,
     AdMobFree,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocalNotifications
   ]
 })
 export class AppModule {

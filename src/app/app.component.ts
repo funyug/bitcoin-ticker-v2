@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import {EthereumPage} from "../pages/ethereum/ethereum";
 import {AllPage} from "../pages/all/all";
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private localNotifications: LocalNotifications) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
