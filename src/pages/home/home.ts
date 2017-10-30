@@ -52,7 +52,7 @@ export class HomePage {
     clearInterval(this.timer);
   }
   getPrice() {
-    this.http.get(`http://shivamchawla.net:3001/bitcoin-price`)
+    this.http.get(`http://localhost:1323/bitcoin-price`)
       .subscribe(data => {
         let priceData = data.json();
         this.data = priceData;
@@ -81,6 +81,15 @@ export class HomePage {
         }
         if(priceData.pocketBitsSellPrice) {
           totalPrice = totalPrice + priceData.pocketBitsSellPrice;
+          totalExchanges++;
+        }
+
+        if(priceData.koinexBuyPrice) {
+          totalPrice = totalPrice + priceData.koinexBuyPrice;
+          totalExchanges++;
+        }
+        if(priceData.koinexSellPrice) {
+          totalPrice = totalPrice + priceData.koinexSellPrice;
           totalExchanges++;
         }
         this.avgPrice = totalPrice/totalExchanges;

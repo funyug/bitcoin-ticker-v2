@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>All Coins</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <div class="filter">
+      <label>Filter</label>
+      <input class="filter_input" [(ngModel)]="coin_name" (keyup)="getFilteredCoinList(coin_name)" placeholder="Enter coin symbol">
+    </div>
+    <table class="all_coin_table">
+      <thead>
+      <th>Coin Name</th>
+      <th>Buy Price</th>
+      <th>Sell Price</th>
+      <th>Change</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let coin of data.filteredList | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td><a (click)='openPage(coin.MarketName.replace("BTC-",""))'>{{coin.MarketName.replace("BTC-","")}}</a></td>
+        <td>{{coin.Ask | number  : '1.8-8'}} BTC<br>({{coin.Ask * data.bitcoin_rate | number : '1.5-5'}} USD)</td>
+        <td>{{coin.Bid | number  : '1.8-8'}} BTC<br>({{coin.Bid * data.bitcoin_rate | number : '1.5-5'}} USD)</td>
+        <td *ngIf="coin.Last - coin.PrevDay > 0" style="color:green">{{(coin.Last - coin.PrevDay)/coin.PrevDay * 100 | number  : '1.2-2'}} %</td>
+        <td *ngIf="coin.Last - coin.PrevDay < 0" style="color:red">{{(coin.Last - coin.PrevDay)/coin.PrevDay * 100 | number  : '1.2-2'}} %</td>
+        <td *ngIf="coin.Last - coin.PrevDay == 0">{{(coin.Last - coin.PrevDay)/coin.PrevDay * 100 | number  : '1.2-2'}} %</td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div class="footer">
+    <a href="bitcoin:3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4">Donate : 3E1vJTdKqBPewSepnVNjsoy7MPQonwy8X4</a>
+  </div>
+</ion-content>
