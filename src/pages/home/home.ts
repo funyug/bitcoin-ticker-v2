@@ -52,7 +52,7 @@ export class HomePage {
     clearInterval(this.timer);
   }
   getPrice() {
-    this.http.get(`http://localhost:1323/bitcoin-price`)
+    this.http.get(`http://shivamchawla.net:3001/bitcoin-price`)
       .subscribe(data => {
         let priceData = data.json();
         this.data = priceData;

@@ -15,10 +15,10 @@
     </div>
     <table class="all_coin_table">
       <thead>
-      <th>Coin Name</th>
-      <th>Buy Price</th>
-      <th>Sell Price</th>
-      <th>Change</th>
+      <th (click)="toggleSort(1)"><u>Coin Name</u> <ion-icon name="arrow-dropdown" [hidden]="type != 1"></ion-icon> <ion-icon name="arrow-dropup" [hidden]="type != 2"></ion-icon></th>
+      <th (click)="toggleSort(2)"><u>Buy Price</u> <ion-icon name="arrow-dropdown" [hidden]="type != 3"></ion-icon> <ion-icon name="arrow-dropup" [hidden]="type != 4"></ion-icon></th>
+      <th (click)="toggleSort(3)"><u>Sell Price</u> <ion-icon name="arrow-dropdown" [hidden]="type != 5"></ion-icon> <ion-icon name="arrow-dropup" [hidden]="type != 6"></ion-icon></th>
+      <th (click)="toggleSort(4)"><u>Change</u> <ion-icon name="arrow-dropdown" [hidden]="type != 7"></ion-icon> <ion-icon name="arrow-dropup" [hidden]="type != 8"></ion-icon></th>
       </thead>
       <tbody>
       <tr *ngFor="let coin of data.filteredList | paginate: { itemsPerPage: 10, currentPage: p }">
