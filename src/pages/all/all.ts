@@ -69,7 +69,7 @@ export class AllPage {
         let priceData = data.json();
         this.data["coins"] = priceData.result;
         this.data["coins"] = this.data["coins"].filter(function(coin) {
-           return coin.MarketName.indexOf("BTC") !== -1;
+           return coin.MarketName.indexOf("BTC") === 0;
         });
         this.getFilteredCoinList(this.coin_name);
       });
