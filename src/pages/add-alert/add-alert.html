@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Alert</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form (submit)="addAlert(alert)">
+  <ion-item>
+    <ion-label>Exchange</ion-label>
+    <ion-select [(ngModel)]="alert.ExchangeId" name="exchange_id">
+      <ion-option value="1">Zebpay</ion-option>
+      <ion-option value="2">CoinSecure</ion-option>
+      <ion-option value="3">PocketBits</ion-option>
+      <ion-option value="4">Koinex</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select [(ngModel)]="alert.AlertType" name="alert_type">
+      <ion-option value="1">Greater Than</ion-option>
+      <ion-option value="0">Smaller Than</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" placeholder="Alert Price" [(ngModel)]="alert.AlertPrice" name="alert_price"></ion-input>
+  </ion-item>
+  <div class="add_coin_button_div center">
+    <button ion-button round class="center">Add</button>
+  </div>
+</form>
+</ion-content>

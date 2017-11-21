@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {AdMobFree, AdMobFreeBannerConfig} from "@ionic-native/admob-free";
 import {GoogleAnalytics} from "@ionic-native/google-analytics";
 import {Http} from "@angular/http";
+import {AddAlertPage} from "../add-alert/add-alert";
 
 /**
  * Generated class for the AlertsPage page.
@@ -17,7 +18,15 @@ import {Http} from "@angular/http";
 })
 export class AlertsPage {
   alerts:any;
+  p: number = 1;
+  device_id:string;
+  alerts_page:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,  public http:Http, private ga: GoogleAnalytics,private admobFree: AdMobFree) {
+    this.alerts = [];
+    this.device_id = localStorage.getItem('device_id');
+    this.device_id = "test123";
+    this.alerts_page = AddAlertPage;
+    this.getAlerts();
     this.ga.startTrackerWithId('UA-104875174-1')
       .then(() => {
         console.log('Google analytics is ready now');
@@ -46,10 +55,29 @@ export class AlertsPage {
   }
 
   getAlerts() {
-    this.http.get(`http://shivamchawla.net:3001/bitcoin-price`)
+    this.http.get(`http://localhost:3001/alerts?device_id=`+this.device_id)
       .subscribe(data => {
-        this.alerts = data.json();
+        data = data.json();
+        this.alerts = data["Data"];
+        for(let i = 0; i<this.alerts.length;i++) {
+           if(this.alerts[i].ExchangeId == 1) {
+             this.alerts[i].Exchange = "Zebpay";
+           }
+           if(this.alerts[i].ExchangeId == 2) {
+             this.alerts[i].Exchange = "Coinsecure";
+           }
+           if(this.alerts[i].ExchangeId == 3) {
+             this.alerts[i].Exchange = "PocketBits";
+           }
+           if(this.alerts[i].ExchangeId == 4) {
+             this.alerts[i].Exchange = "Koinex";
+           }
+        }
       });
+  }
+
+   openPage(p) {
+    this.navCtrl.push(p);
   }
 
 

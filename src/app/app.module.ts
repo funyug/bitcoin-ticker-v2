@@ -14,6 +14,8 @@ import { AdMobFree } from '@ionic-native/admob-free';
 import {EthereumPage} from "../pages/ethereum/ethereum";
 import {AllPage} from "../pages/all/all";
 import {CoinPage} from "../pages/coin/coin";
+import {AlertsPage} from "../pages/alerts/alerts";
+import {AddAlertPage} from "../pages/add-alert/add-alert";
 import {LocalNotifications} from "@ionic-native/local-notifications";
 
 @NgModule({
@@ -22,7 +24,9 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
     HomePage,
     EthereumPage,
     AllPage,
-    CoinPage
+    CoinPage,
+    AlertsPage,
+    AddAlertPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
     HomePage,
     EthereumPage,
     AllPage,
-    CoinPage
+    CoinPage,
+    AlertsPage,
+    AddAlertPage
   ],
   providers: [
     StatusBar,

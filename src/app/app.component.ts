@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {EthereumPage} from "../pages/ethereum/ethereum";
+import { AddAlertPage } from '../pages/add-alert/add-alert';
 import {AllPage} from "../pages/all/all";
 import {LocalNotifications} from "@ionic-native/local-notifications";
 
@@ -15,7 +16,7 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = AddAlertPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,7 +27,8 @@ export class MyApp {
     this.pages = [
       { title: 'Bitcoin Price', component: HomePage },
       { title: 'Ethereum Price', component: EthereumPage },
-      { title: 'All Coins', component: AllPage }
+      { title: 'All Coins', component: AllPage },
+      //{ title: 'Alerts', component: AlertsPage }
     ];
 
   }
