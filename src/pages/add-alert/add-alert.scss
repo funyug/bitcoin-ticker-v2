@@ -1,3 +1,11 @@
 page-add-alert {
-
+  ion-label {
+    color:black !important;
+  }
+  .center {
+    text-align:center;
+  }
+  .text-input::placeholder {
+    color:black !important;
+  }
 }

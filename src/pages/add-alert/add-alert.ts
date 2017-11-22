@@ -13,6 +13,11 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-alert.html',
 })
 export class AddAlertPage {
+  alert: {  ExchangeId: number, AlertPrice: number, AlertType: number} = {
+    ExchangeId: null,
+    AlertPrice: null,
+    AlertType: null
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
