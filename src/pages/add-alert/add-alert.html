@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <div class="center">
-    <form (submit)="addAlert(alert)">
+    <form (submit)="postAlert()">
       <ion-item>
         <ion-label>Exchange</ion-label>
         <ion-select [(ngModel)]="alert.ExchangeId" name="exchange_id">
