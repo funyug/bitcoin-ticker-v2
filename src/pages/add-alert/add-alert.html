@@ -30,8 +30,11 @@
           <ion-option value="0">Lesser Than</ion-option>
         </ion-select>
       </ion-item>
+      <div class="center">
+        <p>{{error}}</p>
+      </div>
       <div class="add_coin_button_div center">
-        <button ion-button round class="center">Add</button>
+        <button ion-button round class="center" [disabled]="button_disabled">Add</button>
       </div>
     </form>
   </div>

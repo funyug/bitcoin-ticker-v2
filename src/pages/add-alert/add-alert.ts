@@ -23,21 +23,26 @@ export class AddAlertPage {
     DeviceId:"test123"
   };
   error :string="";
+  button_disabled:number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
   }
 
   postAlert() {
+    this.button_disabled = 1;
     if(this.alert.ExchangeId == null) {
       this.error = "Please select an exchange";
+      this.button_disabled = 0;
       return;
     }
     if(!this.alert.AlertPrice) {
       this.error = "Please enter the price";
+      this.button_disabled = 0;
       return;
     }
     if(this.alert.AlertType == null) {
       this.error = "Please select the type";
+      this.button_disabled = 0;
       return;
     }
     this.http.post(`http://localhost:3001/alerts`,this.alert)
@@ -48,8 +53,11 @@ export class AddAlertPage {
         }
         else {
           this.error = data["Data"];
-          console.log(this.error);
         }
+        this.button_disabled = 0;
+      },error=> {
+        this.error = "Please check your connection";
+        this.button_disabled = 0;
       });
   }
 
