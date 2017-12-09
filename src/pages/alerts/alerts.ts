@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {AdMobFree, AdMobFreeBannerConfig} from "@ionic-native/admob-free";
 import {GoogleAnalytics} from "@ionic-native/google-analytics";
-import {Http} from "@angular/http";
+import {Http, RequestOptions} from "@angular/http";
 import {AddAlertPage} from "../add-alert/add-alert";
 
 /**
@@ -21,10 +21,10 @@ export class AlertsPage {
   p: number = 1;
   device_id:string;
   alerts_page:any;
+  error:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,  public http:Http, private ga: GoogleAnalytics,private admobFree: AdMobFree) {
     this.alerts = [];
     this.device_id = localStorage.getItem('device_id');
-    this.device_id = "test123";
     this.alerts_page = AddAlertPage;
     this.getAlerts();
     this.ga.startTrackerWithId('UA-104875174-1')
@@ -73,6 +73,23 @@ export class AlertsPage {
              this.alerts[i].Exchange = "Koinex";
            }
         }
+      });
+  }
+
+  removeAlert(id) {
+    this.http.delete(`http://localhost:3001/alerts`,new RequestOptions({
+      body: {DeviceId:"test123",Id:id}
+    }))
+      .subscribe(data => {
+        data = data.json();
+        if(data['Success'] == 1) {
+          this.getAlerts()
+        }
+        else {
+          this.error = data["Data"];
+        }
+      },error=> {
+        this.error = "Please check your connection or try after sometime";
       });
   }
 

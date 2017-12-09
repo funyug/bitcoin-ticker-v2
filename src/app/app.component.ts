@@ -5,9 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {EthereumPage} from "../pages/ethereum/ethereum";
-import { AddAlertPage } from '../pages/add-alert/add-alert';
 import {AllPage} from "../pages/all/all";
-import {LocalNotifications} from "@ionic-native/local-notifications";
+import {AlertsPage} from "../pages/alerts/alerts";
 
 
 @Component({
@@ -16,11 +15,11 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AddAlertPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private localNotifications: LocalNotifications) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -28,7 +27,7 @@ export class MyApp {
       { title: 'Bitcoin Price', component: HomePage },
       { title: 'Ethereum Price', component: EthereumPage },
       { title: 'All Coins', component: AllPage },
-      //{ title: 'Alerts', component: AlertsPage }
+      { title: 'Alerts', component: AlertsPage }
     ];
 
   }

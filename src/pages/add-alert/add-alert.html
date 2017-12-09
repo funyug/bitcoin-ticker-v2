@@ -12,7 +12,7 @@
     <form (submit)="postAlert()">
       <ion-item>
         <ion-label>Exchange</ion-label>
-        <ion-select [(ngModel)]="alert.ExchangeId" name="exchange_id">
+        <ion-select [(ngModel)]="alert.ExchangeId" name="exchange_id" (ngModelChange)="alert.ExchangeId = convertToNumber($event)">
           <ion-option value="1">Zebpay</ion-option>
           <ion-option value="2">CoinSecure</ion-option>
           <ion-option value="3">PocketBits</ion-option>
@@ -21,11 +21,11 @@
       </ion-item>
       <ion-item>
         <ion-input type="number" placeholder="Alert Price" [(ngModel)]="alert.AlertPrice"
-                   name="alert_price"></ion-input>
+                   name="alert_price" (ngModelChange)="alert.AlertPrice = convertToNumber($event)"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Type</ion-label>
-        <ion-select [(ngModel)]="alert.AlertType" name="alert_type">
+        <ion-select [(ngModel)]="alert.AlertType" name="alert_type" (ngModelChange)="alert.AlertType = convertToNumber($event)">
           <ion-option value="1">Greater Than</ion-option>
           <ion-option value="0">Lesser Than</ion-option>
         </ion-select>

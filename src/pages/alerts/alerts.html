@@ -20,7 +20,7 @@
       <tr *ngFor="let alert of alerts | paginate: { itemsPerPage: 10, currentPage: p }">
         <td>{{alert.Exchange}}</td>
         <td>{{alert.AlertType == 0 ? "<" : ">"}}{{alert.AlertPrice}}</td>
-        <td><a (click)="deleteAlert(1)">Remove</a></td>
+        <td><a (click)="removeAlert(alert.Id)">Remove</a></td>
       </tr>
       </tbody>
     </table>

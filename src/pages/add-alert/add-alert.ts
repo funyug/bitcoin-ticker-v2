@@ -19,8 +19,7 @@ export class AddAlertPage {
     ExchangeId: null,
     AlertPrice: null,
     AlertType: null,
-    //DeviceId:localStorage.getItem("device_id")
-    DeviceId:"test123"
+    DeviceId:localStorage.getItem("device_id")
   };
   error :string="";
   button_disabled:number = 0;
@@ -56,10 +55,13 @@ export class AddAlertPage {
         }
         this.button_disabled = 0;
       },error=> {
-        this.error = "Please check your connection";
+        this.error = "Please check your connection or try after sometime";
         this.button_disabled = 0;
       });
   }
+
+  public convertToNumber(event):number {  return +event; }
+
 
 
 }
