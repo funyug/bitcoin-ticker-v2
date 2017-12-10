@@ -55,7 +55,7 @@ export class AlertsPage {
   }
 
   getAlerts() {
-    this.http.get(`http://localhost:3001/alerts?device_id=`+this.device_id)
+    this.http.get(`http://shivamchawla.net:3001/alerts?device_id=`+this.device_id)
       .subscribe(data => {
         data = data.json();
         this.alerts = data["Data"];
