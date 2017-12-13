@@ -1,10 +1,12 @@
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Add Alert</ion-title>
   </ion-navbar>
-
 </ion-header>
+
 
 
 <ion-content padding>
@@ -13,10 +15,10 @@
       <ion-item>
         <ion-label>Exchange</ion-label>
         <ion-select [(ngModel)]="alert.ExchangeId" name="exchange_id" (ngModelChange)="alert.ExchangeId = convertToNumber($event)">
-          <ion-option value="1">Zebpay</ion-option>
-          <ion-option value="2">CoinSecure</ion-option>
+          <ion-option value="1">CoinSecure</ion-option>
+          <ion-option value="2">Koinex</ion-option>
           <ion-option value="3">PocketBits</ion-option>
-          <ion-option value="4">Koinex</ion-option>
+          <ion-option value="4">Zebpay</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -24,10 +26,17 @@
                    name="alert_price" (ngModelChange)="alert.AlertPrice = convertToNumber($event)"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Type</ion-label>
-        <ion-select [(ngModel)]="alert.AlertType" name="alert_type" (ngModelChange)="alert.AlertType = convertToNumber($event)">
+        <ion-label>Operator</ion-label>
+        <ion-select [(ngModel)]="alert.Operator" name="operator" (ngModelChange)="alert.Operator = convertToNumber($event)">
           <ion-option value="1">Greater Than</ion-option>
           <ion-option value="0">Lesser Than</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Price Type</ion-label>
+        <ion-select [(ngModel)]="alert.PriceType" name="price_type" (ngModelChange)="alert.PriceType = convertToNumber($event)">
+          <ion-option value="1">Buy Price</ion-option>
+          <ion-option value="0">Sell Price</ion-option>
         </ion-select>
       </ion-item>
       <div class="center">

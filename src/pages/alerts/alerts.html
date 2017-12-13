@@ -1,11 +1,13 @@
 
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Alerts</ion-title>
   </ion-navbar>
-
 </ion-header>
+
 
 
 <ion-content padding>
@@ -13,13 +15,15 @@
     <table class="alerts">
       <thead>
       <th><u>Exchange</u></th>
+      <th><u>Type</u></th>
       <th><u>Amount</u></th>
       <th><u>Action</u></th>
       </thead>
       <tbody>
       <tr *ngFor="let alert of alerts | paginate: { itemsPerPage: 10, currentPage: p }">
         <td>{{alert.Exchange}}</td>
-        <td>{{alert.AlertType == 0 ? "<" : ">"}}{{alert.AlertPrice}}</td>
+        <td>{{alert.PriceType == 1 ? "Buy Price" : "Sell Price"}}</td>
+        <td>{{alert.Operator == 0 ? "<" : ">"}}{{alert.AlertPrice}}</td>
         <td><a (click)="removeAlert(alert.Id)">Remove</a></td>
       </tr>
       </tbody>

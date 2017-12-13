@@ -16,7 +16,7 @@ import {AllPage} from "../pages/all/all";
 import {CoinPage} from "../pages/coin/coin";
 import {AlertsPage} from "../pages/alerts/alerts";
 import {AddAlertPage} from "../pages/add-alert/add-alert";
-import {LocalNotifications} from "@ionic-native/local-notifications";
+import {Push} from "@ionic-native/push";
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
     GoogleAnalytics,
     AdMobFree,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocalNotifications
+    Push
   ]
 })
 export class AppModule {

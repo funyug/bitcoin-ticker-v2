@@ -17,10 +17,11 @@ import {GoogleAnalytics} from "@ionic-native/google-analytics";
   templateUrl: 'add-alert.html',
 })
 export class AddAlertPage {
-  alert: {  ExchangeId: number, AlertPrice: number, AlertType: number, DeviceId:string} = {
+  alert: {  ExchangeId: number, AlertPrice: number, PriceType: number, Operator: number, DeviceId:string} = {
     ExchangeId: null,
     AlertPrice: null,
-    AlertType: null,
+    PriceType: null,
+    Operator:null,
     DeviceId:localStorage.getItem("device_id")
   };
   error :string="";
@@ -67,12 +68,17 @@ export class AddAlertPage {
       this.button_disabled = 0;
       return;
     }
-    if(this.alert.AlertType == null) {
+    if(this.alert.PriceType == null) {
       this.error = "Please select the type";
       this.button_disabled = 0;
       return;
     }
-    this.http.post(`http://shivamchawla.net:3001/alerts`,this.alert)
+    if(this.alert.Operator == null) {
+      this.error = "Please select the operator";
+      this.button_disabled = 0;
+      return;
+    }
+    this.http.post(`http://shivamchawla.net:3002/alerts`,this.alert)
       .subscribe(data => {
         data = data.json();
         if(data['Success'] == 1) {

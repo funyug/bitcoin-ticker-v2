@@ -55,30 +55,30 @@ export class AlertsPage {
   }
 
   getAlerts() {
-    this.http.get(`http://shivamchawla.net:3001/alerts?device_id=`+this.device_id)
+    this.http.get(`http://shivamchawla.net:3002/alerts?device_id=`+this.device_id)
       .subscribe(data => {
         data = data.json();
         this.alerts = data["Data"];
         for(let i = 0; i<this.alerts.length;i++) {
            if(this.alerts[i].ExchangeId == 1) {
-             this.alerts[i].Exchange = "Zebpay";
+             this.alerts[i].Exchange = "CoinSecure";
            }
            if(this.alerts[i].ExchangeId == 2) {
-             this.alerts[i].Exchange = "Coinsecure";
+             this.alerts[i].Exchange = "Koinex";
            }
            if(this.alerts[i].ExchangeId == 3) {
              this.alerts[i].Exchange = "PocketBits";
            }
            if(this.alerts[i].ExchangeId == 4) {
-             this.alerts[i].Exchange = "Koinex";
+             this.alerts[i].Exchange = "Zebpay";
            }
         }
       });
   }
 
   removeAlert(id) {
-    this.http.delete(`http://localhost:3001/alerts`,new RequestOptions({
-      body: {DeviceId:"test123",Id:id}
+    this.http.delete(`http://shivamchawla.net:3002/alerts`,new RequestOptions({
+      body: {DeviceId:this.device_id,Id:id}
     }))
       .subscribe(data => {
         data = data.json();
