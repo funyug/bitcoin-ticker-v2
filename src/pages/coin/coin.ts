@@ -35,6 +35,9 @@ export class CoinPage {
   }
 
   getCoinData(symbol) {
+    if(symbol == "BCC") {
+      symbol = "BCH";
+    }
      let coins_data = JSON.parse(localStorage.getItem("coin_data"));
      let coin_data = coins_data.filter(function(coin) {
        return coin.symbol.indexOf(symbol) !== -1;
