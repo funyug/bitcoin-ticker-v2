@@ -62,7 +62,8 @@
       "cordova-plugin-google-analytics": {},
       "cordova-plugin-admob-free": {},
       "phonegap-plugin-push": {
-        "FCM_VERSION": "11.0.1"
+        "FCM_VERSION": "11.0.1",
+        "SENDER_ID": "296037267481"
       }
     },
     "platforms": [

@@ -92,7 +92,7 @@ export class AllPage {
     this.sortBy(this.type);
   }
   getCoinMarketCapData() {
-    this.http.get(`https://api.coinmarketcap.com/v1/ticker/`)
+    this.http.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=1000`)
       .subscribe(data => {
         let coinData = data.json();
         this.data["coin_data"] = coinData;
@@ -103,6 +103,16 @@ export class AllPage {
       this.navCtrl.push(CoinPage, {
       symbol: symbol
     });
+  }
+  checkCoinMarketCap(symbol) {
+    let coins_data = JSON.parse(localStorage.getItem("coin_data"));
+    let coin_data = coins_data.filter(function(coin) {
+      return coin.symbol.indexOf(symbol) !== -1;
+    });
+    if(coin_data.length > 0) {
+      return true;
+    }
+    return false;
   }
 
   sortBy(type) {

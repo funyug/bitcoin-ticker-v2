@@ -88,5 +88,6 @@
     <plugin name="cordova-plugin-admob-free" spec="^0.10.0" />
     <plugin name="phonegap-plugin-push" spec="^2.1.0">
         <variable name="FCM_VERSION" value="11.0.1" />
+        <variable name="SENDER_ID" value="296037267481" />
     </plugin>
 </widget>

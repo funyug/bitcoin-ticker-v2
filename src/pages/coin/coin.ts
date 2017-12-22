@@ -14,7 +14,7 @@ export class CoinPage {
   constructor(public navCtrl: NavController, public http:Http, private ga: GoogleAnalytics,private admobFree: AdMobFree,public navParams:NavParams) {
     let coin_symbol = this.navParams.get("symbol");
     this.getCoinData(coin_symbol);
-    
+
 
     const bannerConfig: AdMobFreeBannerConfig = {
       // add your config here
@@ -36,18 +36,16 @@ export class CoinPage {
 
   getCoinData(symbol) {
      let coins_data = JSON.parse(localStorage.getItem("coin_data"));
-     console.log(symbol);
      let coin_data = coins_data.filter(function(coin) {
        return coin.symbol.indexOf(symbol) !== -1;
      });
-     console.log(coin_data);
      if(coin_data.length == 0) {
         this.coin_data = undefined;
      }
      else {
        this.coin_data = coin_data[0];
      }
-     
+
      this.ga.startTrackerWithId('UA-104875174-1')
       .then(() => {
         console.log('Google analytics is ready now');
