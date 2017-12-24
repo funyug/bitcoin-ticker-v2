@@ -17,6 +17,7 @@ import {CoinPage} from "../pages/coin/coin";
 import {AlertsPage} from "../pages/alerts/alerts";
 import {AddAlertPage} from "../pages/add-alert/add-alert";
 import {Push} from "@ionic-native/push";
+import {CouponsPage} from "../pages/coupons/coupons";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {Push} from "@ionic-native/push";
     AllPage,
     CoinPage,
     AlertsPage,
-    AddAlertPage
+    AddAlertPage,
+    CouponsPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import {Push} from "@ionic-native/push";
     AllPage,
     CoinPage,
     AlertsPage,
-    AddAlertPage
+    AddAlertPage,
+    CouponsPage
   ],
   providers: [
     StatusBar,

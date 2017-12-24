@@ -8,6 +8,7 @@ import {EthereumPage} from "../pages/ethereum/ethereum";
 import {AllPage} from "../pages/all/all";
 import {AlertsPage} from "../pages/alerts/alerts";
 import {Push, PushObject, PushOptions} from "@ionic-native/push";
+import {CouponsPage} from "../pages/coupons/coupons";
 
 
 @Component({
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'Bitcoin Price', component: HomePage },
       { title: 'Ethereum Price', component: EthereumPage },
       { title: 'All Coins', component: AllPage },
-      { title: 'Alerts', component: AlertsPage }
+      { title: 'Alerts', component: AlertsPage },
+      { title: 'Coupons', component: CouponsPage }
     ];
 
   }
