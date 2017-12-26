@@ -55,7 +55,7 @@ export class AlertsPage {
   }
 
   getAlerts() {
-    this.http.get(`http://shivamchawla.net:3002/alerts?device_id=`+this.device_id)
+    this.http.get(`http://shivamchawla.net:3001/alerts?device_id=`+this.device_id)
       .subscribe(data => {
         data = data.json();
         this.alerts = data["Data"];
@@ -77,7 +77,7 @@ export class AlertsPage {
   }
 
   removeAlert(id) {
-    this.http.delete(`http://shivamchawla.net:3002/alerts`,new RequestOptions({
+    this.http.delete(`http://shivamchawla.net:3001/alerts`,new RequestOptions({
       body: {DeviceId:this.device_id,Id:id}
     }))
       .subscribe(data => {

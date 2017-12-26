@@ -78,7 +78,7 @@ export class AddAlertPage {
       this.button_disabled = 0;
       return;
     }
-    this.http.post(`http://shivamchawla.net:3002/alerts`,this.alert)
+    this.http.post(`http://shivamchawla.net:3001/alerts`,this.alert)
       .subscribe(data => {
         data = data.json();
         if(data['Success'] == 1) {
