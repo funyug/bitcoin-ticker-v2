@@ -60,7 +60,8 @@ export class MyApp {
 
       const options: PushOptions = {
         android: {
-          sound:true
+          sound:true,
+          forceShow:true
         }
       };
 
@@ -71,6 +72,7 @@ export class MyApp {
       pushObject.on('registration').subscribe((registration: any) => {
         localStorage.setItem("device_id",registration.registrationId);
       });
+
 
       pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
 

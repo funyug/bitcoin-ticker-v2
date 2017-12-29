@@ -22,8 +22,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let coin of data.filteredList | paginate: { itemsPerPage: 10, currentPage: p }">
-        <td *ngIf='checkCoinMarketCap(coin.MarketName.replace("BTC-",""))'><a (click)='openPage(coin.MarketName.replace("BTC-",""))'>{{coin.MarketName.replace("BTC-","")}}</a></td>
-        <td *ngIf='!checkCoinMarketCap(coin.MarketName.replace("BTC-",""))'>{{coin.MarketName.replace("BTC-","")}}</td>
+        <td *ngIf='coin.cmc == 1'><a (click)='openPage(coin.MarketName.replace("BTC-",""))'>{{coin.MarketName.replace("BTC-","")}}</a></td>
+        <td *ngIf='coin.cmc == 0 || coin.cmc == undefined'>{{coin.MarketName.replace("BTC-","")}}</td>
         <td>{{coin.Ask | number  : '1.8-8'}} BTC<br>({{coin.Ask * data.bitcoin_rate | number : '1.5-5'}} USD)</td>
         <td>{{coin.Bid | number  : '1.8-8'}} BTC<br>({{coin.Bid * data.bitcoin_rate | number : '1.5-5'}} USD)</td>
         <td *ngIf="coin.Last - coin.PrevDay > 0" style="color:green">{{(coin.Last - coin.PrevDay)/coin.PrevDay * 100 | number  : '1.2-2'}} %</td>

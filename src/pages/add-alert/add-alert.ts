@@ -82,7 +82,7 @@ export class AddAlertPage {
       .subscribe(data => {
         data = data.json();
         if(data['Success'] == 1) {
-          this.navCtrl.push(AlertsPage);
+          this.navCtrl.setRoot(AlertsPage);
         }
         else {
           this.error = data["Data"];
